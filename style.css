@@ -1,1 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f0f12;
+    color: white;
+}
+
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 40px;
+}
+
+.hero {
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.label {
+    color: #7c3aed;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(50px, 8vw, 110px);
+    line-height: 0.95;
+    letter-spacing: -5px;
+    margin-bottom: 35px;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #aaa;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.buttons a {
+    padding: 15px 24px;
+    border-radius: 8px;
+    background: #7c3aed;
+    color: white;
+    text-decoration: none;
+}
+
+.buttons a:last-child {
+    background: transparent;
+    border: 1px solid #444;
+}
+
+h2 {
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.projects article {
+    min-height: 300px;
+    padding: 30px;
+
+    border: 1px solid #29292f;
+    border-radius: 15px;
+
+    transition: transform 0.3s;
+}
+
+.projects article:hover {
+    transform: translateY(-8px);
+}
+
+.projects span {
+    color: #777;
+}
+
+.projects h3 {
+    font-size: 28px;
+    margin: 80px 0 15px;
+}
+
+.projects p,
+.services p,
+#about p,
+#contact p {
+    color: #999;
+    line-height: 1.6;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.services h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#about {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about p {
+    font-size: 28px;
+}
+
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    margin-bottom: 30px;
+}
+
+#contact a {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #7c3aed;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 50px;
+    text-align: center;
+    color: #666;
+}
+
+
+@media (max-width: 800px) {
+
+    nav {
+        display: none;
+    }
+
+    section {
+        padding: 80px 25px;
+    }
+
+    h1 {
+        font-size: 55px;
+        letter-spacing: -3px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
