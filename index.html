@@ -11,6 +11,10 @@
 
     <title>Arix Studio — цифровые продукты</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -75,34 +79,40 @@
 
             <!-- Декоративная область -->
 
+            <!-- Декоративная область -->
+
             <div class="hero-visual">
-
+            
                 <div class="grid"></div>
-
-                <div class="orb orb-one"></div>
-                <div class="orb orb-two"></div>
-
+            
                 <div class="visual-card">
+            
                     <div class="visual-card-top">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <div class="visual-card-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="visual-card-filename">bot.ts</span>
                     </div>
-
+            
                     <div class="visual-code">
-                        <div class="code-line large"></div>
-                        <div class="code-line"></div>
-                        <div class="code-line short"></div>
-                        <div class="code-line medium"></div>
-                        <div class="code-line"></div>
+            <pre><code><span class="code-keyword">export async function</span> <span class="code-function">createBot</span>(<span class="code-param">config</span>: <span class="code-type">BotConfig</span>) {
+              <span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-type">TelegramClient</span>(config.token);
+            
+              <span class="code-keyword">await</span> client.<span class="code-function">on</span>(<span class="code-string">"message"</span>, handleUpdate);
+            
+              <span class="code-keyword">return</span> client.<span class="code-function">start</span>();
+            }</code></pre>
                     </div>
+            
                 </div>
-
+            
                 <div class="visual-label">
                     <span>01</span>
                     IDEA → PRODUCT
                 </div>
-
+            
             </div>
 
         </section>
