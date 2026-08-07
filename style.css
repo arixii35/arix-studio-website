@@ -64,6 +64,13 @@ a {
     justify-content: space-between;
 
     border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 
@@ -87,11 +94,18 @@ a {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #444;
+    border: 1px solid var(--border);
     border-radius: 7px;
 
     font-size: 13px;
     letter-spacing: 0;
+
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo:hover .logo-mark {
+    border-color: var(--accent);
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.25);
 }
 
 
@@ -197,7 +211,7 @@ h1 {
 
     line-height: 0.98;
 
-    letter-spacing: -5px;
+    letter-spacing: -0.03em;
 
     font-weight: 650;
 }
@@ -209,7 +223,7 @@ h1 span {
     background: linear-gradient(
         90deg,
         #ffffff,
-        #777777
+        #8f8aa8
     );
 
     -webkit-background-clip: text;
@@ -338,23 +352,11 @@ h1 span {
     );
 }
 
-
-.orb {
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(70px);
-
-    opacity: 0.35;
-}
-
-
 .orb-one {
     width: 220px;
     height: 220px;
 
-    background: #5b21b6;
+    background: var(--accent);
 
     top: 80px;
     right: 80px;
@@ -365,11 +367,23 @@ h1 span {
     width: 160px;
     height: 160px;
 
-    background: #2563eb;
+    background: var(--accent-light);
 
     bottom: 80px;
     left: 80px;
 }
+
+
+.orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.18;
+}
+
 
 
 .visual-card {
@@ -436,7 +450,7 @@ h1 span {
 .code-line.large {
     width: 90%;
 
-    background: #6d28d9;
+    background: rgba(124, 58, 237, 0.4);
 }
 
 
@@ -1200,5 +1214,45 @@ h2 {
     .footer-links {
         justify-content: center;
     }
+
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-content .hero-description,
+.hero-content .hero-actions {
+    opacity: 0;
+    animation: heroFadeUp 0.7s ease forwards;
+}
+
+.hero-content .eyebrow { animation-delay: 0s; }
+.hero-content h1 { animation-delay: 0.08s; }
+.hero-content .hero-description { animation-delay: 0.16s; }
+.hero-content .hero-actions { animation-delay: 0.24s; }
+
+.visual-card {
+    animation: heroFadeUp 0.7s ease 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content .eyebrow,
+    .hero-content h1,
+    .hero-content .hero-description,
+    .hero-content .hero-actions,
+    .visual-card {
+        animation: none;
+        opacity: 1;
+    }
+}
 
 }
