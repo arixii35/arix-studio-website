@@ -1,1 +1,1 @@
-
+console.log("Arix Studio");
