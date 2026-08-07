@@ -4,137 +4,449 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Arix Studio — Digital Products</title>
+    <meta
+        name="description"
+        content="Arix Studio — разработка цифровых продуктов, Telegram-ботов, веб-сервисов и автоматизации."
+    >
+
+    <title>Arix Studio — цифровые продукты</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">ARIX</div>
+    <!-- Навигация -->
 
-        <nav>
+    <header class="header">
+        <a href="#" class="logo">
+            <span class="logo-mark">A</span>
+            <span>ARIX</span>
+        </a>
+
+        <nav class="nav">
             <a href="#projects">Проекты</a>
             <a href="#services">Услуги</a>
             <a href="#about">О студии</a>
-            <a href="#contact">Контакты</a>
         </nav>
+
+        <a href="#contact" class="header-button">
+            Обсудить проект
+        </a>
     </header>
 
 
     <main>
 
+        <!-- Hero -->
+
         <section class="hero">
-            <p class="label">ARIX STUDIO</p>
 
-            <h1>
-                Digital products
-                <br>
-                for real ideas.
-            </h1>
+            <div class="hero-content">
 
-            <p class="hero-text">
-                Разрабатываем Telegram-ботов,
-                веб-сервисы и инструменты автоматизации.
-            </p>
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+                    Arix Studio
+                </div>
 
-            <div class="buttons">
-                <a href="#projects">Посмотреть проекты</a>
-                <a href="#contact">Обсудить проект</a>
+                <h1>
+                    Создаём цифровые продукты,
+                    <span>которые работают.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Telegram-боты, веб-сервисы и автоматизация
+                    для бизнеса, образования и собственных идей.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="button button-primary">
+                        Смотреть проекты
+                        <span>→</span>
+                    </a>
+
+                    <a href="#contact" class="button button-secondary">
+                        Обсудить проект
+                    </a>
+                </div>
+
             </div>
-        </section>
 
 
-        <section id="projects">
-            <h2>Проекты</h2>
+            <!-- Декоративная область -->
 
-            <div class="projects">
+            <div class="hero-visual">
 
-                <article>
+                <div class="grid"></div>
+
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+
+                <div class="visual-card">
+                    <div class="visual-card-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="visual-code">
+                        <div class="code-line large"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line short"></div>
+                        <div class="code-line medium"></div>
+                        <div class="code-line"></div>
+                    </div>
+                </div>
+
+                <div class="visual-label">
                     <span>01</span>
-                    <h3>EGE Math Bot</h3>
-                    <p>
-                        Telegram-бот для подготовки
-                        к профильной математике.
-                    </p>
-                </article>
-
-
-                <article>
-                    <span>02</span>
-                    <h3>HorseCRM</h3>
-                    <p>
-                        Система управления конным клубом.
-                    </p>
-                </article>
-
-
-                <article>
-                    <span>03</span>
-                    <h3>Booking Bot</h3>
-                    <p>
-                        Система записи клиентов через Telegram.
-                    </p>
-                </article>
-
-            </div>
-        </section>
-
-
-        <section id="services">
-            <h2>Что мы делаем</h2>
-
-            <div class="services">
-
-                <div>
-                    <h3>Telegram</h3>
-                    <p>Боты и автоматизация.</p>
-                </div>
-
-                <div>
-                    <h3>Web</h3>
-                    <p>Сайты и веб-сервисы.</p>
-                </div>
-
-                <div>
-                    <h3>AI</h3>
-                    <p>Инструменты на базе ИИ.</p>
-                </div>
-
-                <div>
-                    <h3>Automation</h3>
-                    <p>Оптимизация рутинных процессов.</p>
+                    IDEA → PRODUCT
                 </div>
 
             </div>
+
         </section>
 
 
-        <section id="about">
-            <h2>О студии</h2>
+        <!-- Разделитель -->
+
+        <div class="divider"></div>
+
+
+        <!-- Projects -->
+
+        <section class="section" id="projects">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">01</span>
+                    <h2>Избранные проекты</h2>
+                </div>
+
+                <p>
+                    Проекты, которые показывают,
+                    что мы умеем создавать.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <article class="project project-large">
+
+                    <div class="project-preview ege-preview">
+
+                        <div class="mockup-window">
+
+                            <div class="mockup-header">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="mockup-content">
+
+                                <div class="mockup-sidebar">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+
+                                <div class="mockup-main">
+                                    <div class="mockup-title"></div>
+
+                                    <div class="mockup-cards">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div>
+                            <span class="project-tag">Telegram · Education</span>
+
+                            <h3>EGE Math Bot</h3>
+
+                            <p>
+                                Telegram-бот для подготовки
+                                к профильной математике.
+                            </p>
+                        </div>
+
+                        <a href="#" class="project-link">
+                            Подробнее →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-preview horse-preview">
+
+                        <div class="horse-symbol">
+                            A
+                        </div>
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div>
+                            <span class="project-tag">
+                                SaaS · Telegram
+                            </span>
+
+                            <h3>HorseCRM</h3>
+
+                            <p>
+                                Система управления
+                                конным клубом.
+                            </p>
+                        </div>
+
+                        <span class="coming-soon">
+                            В разработке
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-preview booking-preview">
+
+                        <div class="booking-lines">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div>
+                            <span class="project-tag">
+                                Telegram · Automation
+                            </span>
+
+                            <h3>Booking Bot</h3>
+
+                            <p>
+                                Автоматизация записи
+                                клиентов.
+                            </p>
+                        </div>
+
+                        <span class="coming-soon">
+                            Скоро
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
+        <!-- Services -->
+
+        <section class="section" id="services">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>Что мы делаем</h2>
+                </div>
+
+                <p>
+                    От небольшой автоматизации
+                    до полноценного цифрового продукта.
+                </p>
+
+            </div>
+
+
+            <div class="services-list">
+
+                <div class="service">
+
+                    <span class="service-number">01</span>
+
+                    <div>
+                        <h3>Telegram</h3>
+                        <p>
+                            Боты, системы записи,
+                            тесты, уведомления и автоматизация.
+                        </p>
+                    </div>
+
+                    <span class="service-arrow">↗</span>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span class="service-number">02</span>
+
+                    <div>
+                        <h3>Web</h3>
+                        <p>
+                            Сайты, веб-приложения
+                            и интерфейсы.
+                        </p>
+                    </div>
+
+                    <span class="service-arrow">↗</span>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span class="service-number">03</span>
+
+                    <div>
+                        <h3>AI</h3>
+                        <p>
+                            Инструменты на базе
+                            искусственного интеллекта.
+                        </p>
+                    </div>
+
+                    <span class="service-arrow">↗</span>
+
+                </div>
+
+
+                <div class="service">
+
+                    <span class="service-number">04</span>
+
+                    <div>
+                        <h3>Автоматизация</h3>
+                        <p>
+                            Убираем повторяющиеся
+                            процессы и экономим время.
+                        </p>
+                    </div>
+
+                    <span class="service-arrow">↗</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
+        <!-- About -->
+
+        <section class="about section" id="about">
+
+            <div class="about-label">
+                <span class="section-number">03</span>
+                О студии
+            </div>
+
+            <div class="about-content">
+
+                <h2>
+                    Хорошая идея должна
+                    <span>становиться продуктом.</span>
+                </h2>
+
+                <p>
+                    Arix Studio — независимая студия разработки.
+                    Мы создаём цифровые продукты, которые помогают
+                    людям и бизнесу решать реальные задачи.
+                </p>
+
+                <p>
+                    От первого прототипа до готового решения —
+                    продумываем продукт, интерфейс и техническую
+                    часть целиком.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
+        <!-- Contact -->
+
+        <section class="contact section" id="contact">
+
+            <div class="contact-glow"></div>
+
+            <span class="section-number">04</span>
+
+            <h2>
+                Есть идея?
+                <span>Давайте создадим её.</span>
+            </h2>
 
             <p>
-                Arix Studio создаёт современные цифровые
-                продукты, которые помогают людям и бизнесу
-                решать реальные задачи.
+                Расскажите о задаче — обсудим,
+                что можно сделать.
             </p>
-        </section>
 
+            <a href="https://t.me/" class="button button-primary">
+                Написать в Telegram
+                <span>→</span>
+            </a>
 
-        <section id="contact">
-            <h2>Есть идея?</h2>
-
-            <p>Давайте создадим её вместе.</p>
-
-            <a href="https://t.me/">Связаться</a>
         </section>
 
     </main>
 
 
-    <footer>
-        © 2026 Arix Studio
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="logo">
+            <span class="logo-mark">A</span>
+            <span>ARIX</span>
+        </div>
+
+        <span>© 2026 Arix Studio</span>
+
+        <div class="footer-links">
+            <a href="#">GitHub</a>
+            <a href="#">Telegram</a>
+        </div>
+
     </footer>
 
 
