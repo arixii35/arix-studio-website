@@ -12,3 +12,16 @@ if (heroVisual) {
         heroVisual.style.setProperty('--y', `${y}px`);
     });
 }
+
+const heroIconWrap = document.getElementById('heroIconWrap');
+
+if (heroIconWrap) {
+    heroIconWrap.addEventListener('mousemove', (e) => {
+        const rect = heroIconWrap.getBoundingClientRect();
+        const ix = e.clientX - rect.left;
+        const iy = e.clientY - rect.top;
+
+        heroIconWrap.style.setProperty('--ix', `${ix}px`);
+        heroIconWrap.style.setProperty('--iy', `${iy}px`);
+    });
+}
