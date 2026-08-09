@@ -13,6 +13,31 @@ if (heroVisual) {
     });
 }
 
+const visualCard = document.getElementById('visualCard');
+
+if (visualCard && heroVisual) {
+    heroVisual.addEventListener('mousemove', (e) => {
+        const rect = visualCard.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+
+        const maxTilt = 6;
+        const ry = Math.max(-1, Math.min(1, dx)) * maxTilt;
+        const rx = Math.max(-1, Math.min(1, -dy)) * maxTilt;
+
+        visualCard.style.setProperty('--rx', `${rx}deg`);
+        visualCard.style.setProperty('--ry', `${ry}deg`);
+    });
+
+    heroVisual.addEventListener('mouseleave', () => {
+        visualCard.style.setProperty('--rx', `0deg`);
+        visualCard.style.setProperty('--ry', `0deg`);
+    });
+}
+
 const heroIconWrap = document.getElementById('heroIconWrap');
 
 if (heroIconWrap) {
