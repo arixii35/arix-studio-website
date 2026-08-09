@@ -79,7 +79,7 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 
     font-size: 15px;
     font-weight: 700;
@@ -89,8 +89,8 @@ a {
 
 
 .logo-icon {
-    width: 26px;
-    height: 26px;
+    width: 38px;
+    height: 38px;
 
     object-fit: contain;
 
@@ -101,7 +101,7 @@ a {
 
 
 .logo:hover .logo-icon {
-    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+    filter: drop-shadow(0 0 12px rgba(124, 58, 237, 0.55));
     transform: scale(1.05);
 }
 
@@ -386,24 +386,77 @@ h1 span {
 }
 
 
-.hero-icon {
+.hero-icon-wrap {
     position: absolute;
 
-    right: -30px;
-    top: 50%;
+    right: 0px;
+    top: -10px;
 
-    transform: translateY(-50%);
-
-    width: 300px;
-    max-width: 60%;
-
-    opacity: 0.1;
-
-    pointer-events: none;
+    width: 360px;
+    max-width: 62%;
+    aspect-ratio: 1 / 1;
 
     z-index: 0;
 
     user-select: none;
+}
+
+
+.hero-icon-base {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    opacity: 0.16;
+
+    pointer-events: none;
+}
+
+
+.hero-icon-glow {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background: radial-gradient(
+        140px circle at var(--ix, 50%) var(--iy, 50%),
+        rgba(167, 139, 250, 0.95),
+        rgba(124, 58, 237, 0.35) 45%,
+        transparent 75%
+    );
+
+    -webkit-mask-image: url('assets/icon.png');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    mask-image: url('assets/icon.png');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+
+.hero-icon-wrap:hover .hero-icon-glow {
+    opacity: 1;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-icon-glow {
+        display: none;
+    }
 }
 
 
@@ -1235,9 +1288,15 @@ h2 {
     }
 
 
-    .hero-icon {
+    .hero-icon-wrap {
         width: 220px;
-        opacity: 0.08;
+        top: -6px;
+        right: -6px;
+    }
+
+
+    .hero-icon-base {
+        opacity: 0.1;
     }
 
 
