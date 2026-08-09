@@ -79,14 +79,16 @@
 
             <!-- Декоративная область -->
 
-            <!-- Декоративная область -->
+            <div class="hero-visual" id="heroVisual">
 
-            <div class="hero-visual">
-            
                 <div class="grid"></div>
-            
+
+                <div class="spotlight"></div>
+
+                <img src="assets/icon.png" alt="" class="hero-icon" aria-hidden="true">
+
                 <div class="visual-card">
-            
+
                     <div class="visual-card-top">
                         <div class="visual-card-dots">
                             <span></span>
@@ -95,24 +97,24 @@
                         </div>
                         <span class="visual-card-filename">bot.ts</span>
                     </div>
-            
+
                     <div class="visual-code">
-            <pre><code><span class="code-keyword">export async function</span> <span class="code-function">createBot</span>(<span class="code-param">config</span>: <span class="code-type">BotConfig</span>) {
-              <span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-type">TelegramClient</span>(config.token);
-            
-              <span class="code-keyword">await</span> client.<span class="code-function">on</span>(<span class="code-string">"message"</span>, handleUpdate);
-            
-              <span class="code-keyword">return</span> client.<span class="code-function">start</span>();
-            }</code></pre>
+<pre><code><span class="code-keyword">export async function</span> <span class="code-function">createBot</span>(<span class="code-param">config</span>: <span class="code-type">BotConfig</span>) {
+  <span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-type">TelegramClient</span>(config.token);
+
+  <span class="code-keyword">await</span> client.<span class="code-function">on</span>(<span class="code-string">"message"</span>, handleUpdate);
+
+  <span class="code-keyword">return</span> client.<span class="code-function">start</span>();
+}</code></pre>
                     </div>
-            
+
                 </div>
-            
+
                 <div class="visual-label">
                     <span>01</span>
                     IDEA → PRODUCT
                 </div>
-            
+
             </div>
 
         </section>
