@@ -57,23 +57,29 @@ if (visualCard && heroVisual) {
     window.addEventListener('resize', resize);
     resize();
 
-    let tintedSprite = null;
+    let purpleSprite = null;
+    let whiteSprite = null;
+
+    function tint(sourceImg, color) {
+        const off = document.createElement('canvas');
+        off.width = sourceImg.naturalWidth;
+        off.height = sourceImg.naturalHeight;
+
+        const octx = off.getContext('2d');
+        octx.drawImage(sourceImg, 0, 0);
+
+        octx.globalCompositeOperation = 'source-atop';
+        octx.fillStyle = color;
+        octx.fillRect(0, 0, off.width, off.height);
+
+        return off;
+    }
 
     const img = new Image();
     img.src = 'assets/backg.png';
     img.onload = () => {
-        const off = document.createElement('canvas');
-        off.width = img.naturalWidth;
-        off.height = img.naturalHeight;
-
-        const octx = off.getContext('2d');
-        octx.drawImage(img, 0, 0);
-
-        octx.globalCompositeOperation = 'source-atop';
-        octx.fillStyle = '#8b5cf6';
-        octx.fillRect(0, 0, off.width, off.height);
-
-        tintedSprite = off;
+        purpleSprite = tint(img, '#8b5cf6');
+        whiteSprite = tint(img, '#f5f3ff');
     };
 
     const prints = [];
@@ -81,9 +87,9 @@ if (visualCard && heroVisual) {
     let lastY = null;
     let flip = 1;
 
-    const SPAWN_MIN_DIST = 46;
+    const SPAWN_MIN_DIST = 60;
     const LIFETIME = 950;
-    const STAMP_SIZE = 30;
+    const STAMP_SIZE = 60;
     const MAX_PRINTS = 40;
 
     function onMove(e) {
@@ -114,6 +120,7 @@ if (visualCard && heroVisual) {
             y: y + perpY * offset,
             angle: angle + Math.PI / 2,
             born: performance.now(),
+            isPurple: flip > 0,
         });
 
         if (prints.length > MAX_PRINTS) prints.shift();
@@ -127,7 +134,7 @@ if (visualCard && heroVisual) {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (tintedSprite) {
+        if (purpleSprite && whiteSprite) {
             const now = performance.now();
 
             for (let i = prints.length - 1; i >= 0; i--) {
@@ -143,14 +150,17 @@ if (visualCard && heroVisual) {
                 const opacity = 1 - t;
                 const scale = 0.85 + t * 0.35;
                 const size = STAMP_SIZE * scale;
+                const sprite = p.isPurple ? purpleSprite : whiteSprite;
 
                 ctx.save();
-                ctx.globalAlpha = opacity * 0.55;
-                ctx.shadowColor = 'rgba(124, 58, 237, 0.55)';
+                ctx.globalAlpha = opacity * (p.isPurple ? 0.55 : 0.4);
+                ctx.shadowColor = p.isPurple
+                    ? 'rgba(124, 58, 237, 0.55)'
+                    : 'rgba(245, 243, 255, 0.4)';
                 ctx.shadowBlur = 10;
                 ctx.translate(p.x, p.y);
                 ctx.rotate(p.angle);
-                ctx.drawImage(tintedSprite, -size / 2, -size / 2, size, size);
+                ctx.drawImage(sprite, -size / 2, -size / 2, size, size);
                 ctx.restore();
             }
         }
