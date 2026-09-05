@@ -6,10 +6,10 @@
 
     <meta
         name="description"
-        content="Arix Studio — разработка цифровых продуктов, Telegram-ботов, веб-сервисов и автоматизации."
+        content="VYRON — разработка цифровых продуктов, Telegram-ботов, веб-сервисов и автоматизации."
     >
 
-    <title>Arix Studio — цифровые продукты</title>
+    <title>VYRON — цифровые продукты</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,10 @@
 
     <header class="header">
         <a href="#" class="logo">
-            <img src="assets/icon.png" alt="Arix Studio" class="logo-icon">
-            <span>ARIX</span>
+            <span class="logo-badge">
+                <img src="assets/icon_1.png" alt="VYRON" class="logo-icon">
+            </span>
+            <span>VYRON</span>
         </a>
 
         <nav class="nav">
@@ -50,11 +52,11 @@
 
                 <div class="eyebrow">
                     <span class="status-dot"></span>
-                    Arix Studio
+                    Открыты для новых проектов
                 </div>
 
                 <h1>
-                    Создаём цифровые продукты,
+                    Продукты,
                     <span>которые работают.</span>
                 </h1>
 
@@ -92,13 +94,6 @@
 
                 <div class="grid"></div>
 
-                <div class="spotlight"></div>
-
-                <div class="hero-icon-wrap" id="heroIconWrap">
-                    <img src="assets/icon.png" alt="" class="hero-icon-base" aria-hidden="true">
-                    <div class="hero-icon-glow" aria-hidden="true"></div>
-                </div>
-
                 <div class="visual-card" id="visualCard">
 
                     <div class="visual-card-top">
@@ -111,8 +106,12 @@
                     </div>
 
                     <div class="visual-code">
-<pre><code><span class="code-keyword">export async function</span> <span class="code-function">createBot</span>(<span class="code-param">config</span>: <span class="code-type">BotConfig</span>) {
-  <span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-type">TelegramClient</span>(config.token);
+<pre><code><span class="code-keyword">export async function</span> <span class="code-function">createBot</span>(
+  <span class="code-param">config</span>: <span class="code-type">BotConfig</span>
+) {
+  <span class="code-keyword">const</span> client = <span class="code-keyword">new</span> <span class="code-type">TelegramClient</span>(
+    config.token
+  );
 
   <span class="code-keyword">await</span> client.<span class="code-function">on</span>(<span class="code-string">"message"</span>, handleUpdate);
 
@@ -120,11 +119,11 @@
 }</code></pre>
                     </div>
 
-                </div>
+                    <div class="visual-card-tag">
+                        <span>01</span>
+                        IDEA → PRODUCT
+                    </div>
 
-                <div class="visual-label">
-                    <span>01</span>
-                    IDEA → PRODUCT
                 </div>
 
             </div>
@@ -383,6 +382,23 @@
 
                 </div>
 
+
+                <div class="service">
+
+                    <span class="service-number">05</span>
+
+                    <div>
+                        <h3>Mini Apps</h3>
+                        <p>
+                            Telegram Mini Apps —
+                            веб-интерфейсы внутри Telegram.
+                        </p>
+                    </div>
+
+                    <span class="service-arrow">↗</span>
+
+                </div>
+
             </div>
 
         </section>
@@ -408,7 +424,7 @@
                 </h2>
 
                 <p>
-                    Arix Studio — независимая студия разработки.
+                    VYRON — независимая студия разработки.
                     Мы создаём цифровые продукты, которые помогают
                     людям и бизнесу решать реальные задачи.
                 </p>
@@ -427,13 +443,42 @@
         <div class="divider"></div>
 
 
+        <!-- Founder -->
+
+        <section class="founder section" id="founder">
+
+            <div class="founder-photo">
+                <img src="assets/founder.jpg" alt="Степенко Арина">
+            </div>
+
+            <div class="founder-info">
+
+                <span class="section-number">04</span>
+
+                <h3>Степенко Арина</h3>
+
+                <p class="founder-role">Основатель · Разработчик · Архитектор цифровых решений</p>
+
+                <p class="founder-bio">
+                    Отвечаю за продукт, интерфейс и техническую
+                    часть каждого проекта VYRON — от идеи до запуска.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
         <!-- Contact -->
 
         <section class="contact section" id="contact">
 
             <div class="contact-glow"></div>
 
-            <span class="section-number">04</span>
+            <span class="section-number">05</span>
 
             <h2>
                 Есть идея?
@@ -460,11 +505,13 @@
     <footer class="footer">
 
         <div class="logo">
-            <img src="assets/icon.png" alt="Arix Studio" class="logo-icon">
-            <span>ARIX</span>
+            <span class="logo-badge">
+                <img src="assets/icon_1.png" alt="VYRON" class="logo-icon">
+            </span>
+            <span>VYRON</span>
         </div>
 
-        <span>© 2026 Arix Studio</span>
+        <span>© 2026 VYRON</span>
 
         <div class="footer-links">
             <a href="#">GitHub</a>
