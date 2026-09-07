@@ -1,5 +1,48 @@
 console.log("VYRON");
 
+/* ===== Живое кодовое окно ===== */
+
+(function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const codeContainer = document.querySelector('.visual-code');
+    const indicator = document.querySelector('.code-live-indicator');
+    const codeLines = codeContainer
+        ? Array.from(codeContainer.querySelectorAll('.code-line')).filter(
+              (el) => el.textContent.trim() !== ''
+          )
+        : [];
+
+    if (!codeContainer || !codeLines.length || reduceMotion) return;
+
+    let activeIndex = 0;
+
+    function activateLine(index) {
+        codeLines.forEach((el) => el.classList.remove('code-line--active'));
+
+        const line = codeLines[index];
+        if (!line) return;
+
+        line.classList.add('code-line--active');
+
+        if (indicator) {
+            const lineRect = line.getBoundingClientRect();
+            const containerRect = codeContainer.getBoundingClientRect();
+            const top = lineRect.top - containerRect.top + lineRect.height / 2 - 2;
+
+            indicator.style.transform = `translateY(${top}px)`;
+        }
+    }
+
+    activateLine(activeIndex);
+
+    setInterval(() => {
+        activeIndex = (activeIndex + 1) % codeLines.length;
+        activateLine(activeIndex);
+    }, 2200);
+})();
+
+
 const heroVisual = document.getElementById('heroVisual');
 
 const visualCard = document.getElementById('visualCard');
