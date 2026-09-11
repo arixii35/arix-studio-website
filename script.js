@@ -394,3 +394,69 @@ if (visualCard && heroVisual) {
 
     requestAnimationFrame(draw);
 })();
+
+
+/* ===== Инерционная прокрутка колесом мыши ===== */
+
+(function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
+    function getMaxScroll() {
+        return document.documentElement.scrollHeight - window.innerHeight;
+    }
+
+    let current = window.scrollY;
+    let target = window.scrollY;
+    const ease = 0.09;
+    let ticking = false;
+
+    function loop() {
+        current += (target - current) * ease;
+
+        if (Math.abs(target - current) < 0.5) {
+            current = target;
+            window.scrollTo(0, current);
+            ticking = false;
+            return;
+        }
+
+        window.scrollTo(0, current);
+        requestAnimationFrame(loop);
+    }
+
+    function onWheel(e) {
+        if (e.ctrlKey) return;
+
+        e.preventDefault();
+
+        target += e.deltaY;
+        target = Math.max(0, Math.min(target, getMaxScroll()));
+
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(loop);
+        }
+    }
+
+    let syncTimeout = null;
+
+    function onNativeScroll() {
+        if (ticking) return;
+
+        clearTimeout(syncTimeout);
+        syncTimeout = setTimeout(() => {
+            current = window.scrollY;
+            target = window.scrollY;
+        }, 80);
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onNativeScroll, { passive: true });
+    window.addEventListener('resize', () => {
+        target = Math.max(0, Math.min(target, getMaxScroll()));
+    });
+})();
