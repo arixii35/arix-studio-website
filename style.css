@@ -1254,7 +1254,7 @@ h2 {
 .about-founder {
     display: grid;
 
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: 1fr 340px;
 
     align-items: start;
 
