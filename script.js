@@ -100,7 +100,6 @@ if (visualCard && heroVisual) {
     window.addEventListener('resize', resize);
     resize();
 
-    let purpleSprite = null;
     let whiteSprite = null;
 
     function tint(sourceImg, color) {
@@ -121,7 +120,6 @@ if (visualCard && heroVisual) {
     const img = new Image();
     img.src = 'assets/backg.png';
     img.onload = () => {
-        purpleSprite = tint(img, '#8b5cf6');
         whiteSprite = tint(img, '#f5f3ff');
     };
 
@@ -130,9 +128,9 @@ if (visualCard && heroVisual) {
     let lastY = null;
     let flip = 1;
 
-    const SPAWN_MIN_DIST = 60;
-    const LIFETIME = 950;
-    const STAMP_SIZE = 60;
+    const SPAWN_MIN_DIST = 100;
+    const LIFETIME = 1700;
+    const STAMP_SIZE = 42;
     const MAX_PRINTS = 40;
 
     function onMove(e) {
@@ -163,7 +161,6 @@ if (visualCard && heroVisual) {
             y: y + perpY * offset,
             angle: angle + Math.PI / 2,
             born: performance.now(),
-            isPurple: flip > 0,
         });
 
         if (prints.length > MAX_PRINTS) prints.shift();
@@ -177,7 +174,7 @@ if (visualCard && heroVisual) {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (purpleSprite && whiteSprite) {
+        if (whiteSprite) {
             const now = performance.now();
 
             for (let i = prints.length - 1; i >= 0; i--) {
@@ -190,20 +187,17 @@ if (visualCard && heroVisual) {
                 }
 
                 const t = age / LIFETIME;
-                const opacity = 1 - t;
+                const opacity = Math.pow(1 - t, 1.6);
                 const scale = 0.85 + t * 0.35;
                 const size = STAMP_SIZE * scale;
-                const sprite = p.isPurple ? purpleSprite : whiteSprite;
 
                 ctx.save();
-                ctx.globalAlpha = opacity * (p.isPurple ? 0.55 : 0.4);
-                ctx.shadowColor = p.isPurple
-                    ? 'rgba(124, 58, 237, 0.55)'
-                    : 'rgba(245, 243, 255, 0.4)';
+                ctx.globalAlpha = opacity * 0.4;
+                ctx.shadowColor = 'rgba(245, 243, 255, 0.4)';
                 ctx.shadowBlur = 10;
                 ctx.translate(p.x, p.y);
                 ctx.rotate(p.angle);
-                ctx.drawImage(sprite, -size / 2, -size / 2, size, size);
+                ctx.drawImage(whiteSprite, -size / 2, -size / 2, size, size);
                 ctx.restore();
             }
         }
